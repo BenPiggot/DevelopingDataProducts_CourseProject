@@ -13,13 +13,26 @@ As the amount of data collected measuring professional sports performance has gr
 
 Data and Statistical Analysis
 ========================================================
+```{r, echo=FALSE}
+library(ggplot2)
+library(scales)
+library(plyr)
+library(dplyr)
+library(shiny)
+library(SportsAnalytics)
 
-I combine the BundesligaFinalStandings and BundesligaTransferSums sets from the SportsAnalytics package to provide data this app uses. From this combined data set, I focus on five variables: Wins, Transfer Spending in Millions of Euros, Transfer Income in Millions of Euros, Goals Scored, and Goals Against. The app runs simple linear regressions which measures the relationship betweens wins and one of the four other variables (depending on what the user chooses). A code sample is displayed below:
-
-
+data(BundesligaTransferSums)
+data(BundesligaFinalStandings)
+bundesligaMaster <- cbind(BundesligaFinalStandings, BundesligaTransferSums)
+bundesligaMaster <- mutate(bundesligaMaster, TransferSpending = Spendings/1000000, 
+                           TransferIncome = Takings/1000000)
+```
+I combine the BundesligaFinalStandings and BundesligaTransferSums sets from the SportsAnalytics package to provide data this app uses. From this combined data set, I focus on five variables: Wins, Transfer Spending in Millions of Euros, Transfer Income in Millions of Euros, Goals Scored, and Goals Against. The app runs simple linear regressions which measures the relationship betweens wins and one of the four other variables (depending on what the user chooses). Here is an exmaple:
+```{r}
+coef(lm(Wins ~ TransferSpending, bundesligaMaster))
+```
 Previewing the App's Output
 ========================================================
-
 
 ```{r, echo=FALSE}
 library(ggplot2)
@@ -45,7 +58,7 @@ ggplot(bundesligaMaster, aes(x=(Spendings/1000000), y=Wins)) + geom_point() +
 
 ```
 ***
-The scatterplot, regression line, and shaded confidence interval I have generated in the figure to the left provides a sample of the app's graphical output. The app also provides regression coefficients and measures of statistical signficance as output (not displayed here).
+The scatterplot, regression line, and shaded confidence interval I have generated in the figure to the left provide a sample of the app's graphical output. The app also provides regression coefficients (like those on the previous page) and measures of statistical signficance as output. 
 
 Further Information
 =========================================================

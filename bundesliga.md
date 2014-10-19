@@ -14,16 +14,22 @@ As the amount of data collected measuring professional sports performance has gr
 Data and Statistical Analysis
 ========================================================
 
-I combine the BundesligaFinalStandings and BundesligaTransferSums sets from the SportsAnalytics package to provide data this app uses. From this combined data set, I focus on five variables: Wins, Transfer Spending in Millions of Euros, Transfer Income in Millions of Euros, Goals Scored, and Goals Against. The app runs simple linear regressions which measures the relationship betweens wins and one of the four other variables (depending on what the user chooses). A code sample is displayed below:
+I combine the BundesligaFinalStandings and BundesligaTransferSums sets from the SportsAnalytics package to provide data this app uses. From this combined data set, I focus on five variables: Wins, Transfer Spending in Millions of Euros, Transfer Income in Millions of Euros, Goals Scored, and Goals Against. The app runs simple linear regressions which measures the relationship betweens wins and one of the four other variables (depending on what the user chooses). Here is an exmaple:
 
+```r
+coef(lm(Wins ~ TransferSpending, bundesligaMaster))
+```
 
+```
+     (Intercept) TransferSpending 
+         11.6343           0.1398 
+```
 Previewing the App's Output
 ========================================================
 
-
-![plot of chunk unnamed-chunk-1](bundesliga-figure/unnamed-chunk-1.png) 
+![plot of chunk unnamed-chunk-3](bundesliga-figure/unnamed-chunk-3.png) 
 ***
-The scatterplot, regression line, and shaded confidence interval I have generated in the figure to the left provides a sample of the app's graphical output. The app also provides regression coefficients and measures of statistical signficance as output (not displayed here).
+The scatterplot, regression line, and shaded confidence interval I have generated in the figure to the left provide a sample of the app's graphical output. The app also provides regression coefficients (like those on the previous page) and measures of statistical signficance as output. 
 
 Further Information
 =========================================================
