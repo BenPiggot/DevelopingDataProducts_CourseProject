@@ -14,7 +14,7 @@ As the amount of data collected measuring professional sports performance has gr
 Data and Statistical Analysis
 ========================================================
 
-I combine the BundesligaFinalStandings and BundesligaTransferSums sets from the SportsAnalytics package to provide data this app uses. From this combined data set, I focus on five variables: Wins, Transfer Spending in Millions of Euros, Transfer Income in Millions of Euros, Goals Scored, and Goals Against. The app runs simple linear regressions which measures the relationship betweens wins and one of the four other variables (depending on what the user chooses). Here is an exmaple:
+I combine the BundesligaFinalStandings and BundesligaTransferSums sets from the SportsAnalytics package to provide data this app uses. From this combined data set, I focus on five variables: Wins, Transfer Spending in Millions of Euros, Transfer Income in Millions of Euros, Goals Scored, and Goals Against. The app runs simple linear regressions which measures the relationship betweens wins and one of the four other variables. Here is an exmaple:
 
 ```r
 coef(lm(Wins ~ TransferSpending, bundesligaMaster))
