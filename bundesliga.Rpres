@@ -35,18 +35,6 @@ Previewing the App's Output
 ========================================================
 
 ```{r, echo=FALSE}
-library(ggplot2)
-library(scales)
-library(plyr)
-library(dplyr)
-library(shiny)
-library(SportsAnalytics)
-
-data(BundesligaTransferSums)
-data(BundesligaFinalStandings)
-bundesligaMaster <- cbind(BundesligaFinalStandings, BundesligaTransferSums)
-bundesligaMaster <- mutate(bundesligaMaster, TransferSpending = Spendings/1000000, 
-                           TransferIncome = Takings/1000000)
 
 ggplot(bundesligaMaster, aes(x=(Spendings/1000000), y=Wins)) + geom_point() + 
                 stat_smooth(method=lm) + scale_x_continuous(labels = comma) + 
@@ -54,7 +42,6 @@ ggplot(bundesligaMaster, aes(x=(Spendings/1000000), y=Wins)) + geom_point() +
                 theme(axis.title.x = element_text(vjust = 0)) +
                 labs(title="Relationship between Transfer Spending and Wins, 1990 to 2010") +
                 theme(plot.title = element_text(face="bold", size = 13, vjust = 2.3))
-
 
 ```
 ***
