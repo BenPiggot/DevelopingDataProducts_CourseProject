@@ -22,12 +22,12 @@ coef(lm(Wins ~ TransferSpending, bundesligaMaster))
 
 ```
      (Intercept) TransferSpending 
-         11.6343           0.1398 
+      11.6342872        0.1397806 
 ```
 Previewing the App's Output
 ========================================================
 
-![plot of chunk unnamed-chunk-3](bundesliga-figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](bundesliga-figure/unnamed-chunk-3-1.png) 
 ***
 The scatterplot, regression line, and shaded confidence interval I have generated in the figure to the left provide a sample of the app's graphical output. The app also provides regression coefficients (like those on the previous page) and measures of statistical signficance as output. 
 

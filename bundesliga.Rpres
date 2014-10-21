@@ -24,6 +24,7 @@ library(SportsAnalytics)
 data(BundesligaTransferSums)
 data(BundesligaFinalStandings)
 bundesligaMaster <- cbind(BundesligaFinalStandings, BundesligaTransferSums)
+bundesligaMaster <- bundesligaMaster[,c(-13,-14,-15)]
 bundesligaMaster <- mutate(bundesligaMaster, TransferSpending = Spendings/1000000, 
                            TransferIncome = Takings/1000000)
 ```
