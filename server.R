@@ -1,10 +1,8 @@
 library(ggplot2)
 library(scales)
 library(plyr)
-library(dplyr)
 library(shiny)
 library(SportsAnalytics)
-library(ggvis)
 
 data(BundesligaTransferSums)
 data(BundesligaFinalStandings)
@@ -12,7 +10,7 @@ bundesligaMaster <- cbind(BundesligaFinalStandings, BundesligaTransferSums)
 bundesligaMaster <- bundesligaMaster[,c(-13,-14,-15)]
 bundesligaMaster <- mutate(bundesligaMaster, TransferSpending = Spendings/1000000, 
                            TransferIncome = Takings/1000000)
-glimpse(bundesligaMaster)
+
 
 shinyServer(function(input, output){
     

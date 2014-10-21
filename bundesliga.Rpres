@@ -17,7 +17,6 @@ Data and Statistical Analysis
 library(ggplot2)
 library(scales)
 library(plyr)
-library(dplyr)
 library(shiny)
 library(SportsAnalytics)
 
